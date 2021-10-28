@@ -37,7 +37,7 @@ shape_config = {
     'centerrow_offset':
     3,  # rows from max, controls front_back tilt
     'tenting_angle':
-    pi / 10.0,  # or, change this for more precise tenting control
+    pi / 12.0,  # or, change this for more precise tenting control
 
     # symmetry states if it is a symmetric or asymmetric bui.  If asymmetric it doubles the generation time.
     'symmetry':
@@ -68,7 +68,7 @@ shape_config = {
 
     # 'DEFAULT' 6-key, 'MINI' 5-key, 'CARBONFET' 6-key, 'MINIDOX' 3-key, 'TRACKBALL_ORBYL', 'TRACKBALL_CJ'
     'thumb_style':
-    'CARBONFET',
+    'MINI',
     'default_1U_cluster':
     True,  # only used with default, makes top right thumb cluster key 1U
     # Thumb key size.  May need slight oversizing, check w/ caps.  Additional spacing will be automatically added for larger keys.
@@ -267,7 +267,7 @@ shape_config = {
     'left_wall_lower_y_offset':
     0,  # specific values for the lower left corner.
     'left_wall_lower_z_offset':
-    0,
+    3,
     'wall_thickness':
     2,  # wall thickness parameter used on upper/mid stage of the wall
     'wall_base_y_thickness':
