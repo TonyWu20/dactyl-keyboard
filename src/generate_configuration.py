@@ -37,7 +37,7 @@ shape_config = {
     'centerrow_offset':
     3,  # rows from max, controls front_back tilt
     'tenting_angle':
-    pi / 12.0,  # or, change this for more precise tenting control
+    pi / 6.0,  # or, change this for more precise tenting control
 
     # symmetry states if it is a symmetric or asymmetric bui.  If asymmetric it doubles the generation time.
     'symmetry':
@@ -45,17 +45,17 @@ shape_config = {
     'column_style_gt5':
     "orthographic",
     'column_style':
-    "standard",  # options include :standard, :orthographic, and :fixed
+    "orthographic",  # options include :standard, :orthographic, and :fixed
     'thumb_offsets': [6, -3, 7],
     'keyboard_z_offset': (
-        11  # controls overall height# original=9 with centercol=3# use 16 for centercol=2
+        14  # controls overall height# original=9 with centercol=3# use 16 for centercol=2
     ),
     'extra_width':
     2.5,  # extra space between the base of keys# original= 2
     'extra_height':
     1.0,  # original= 0.5
     'web_thickness':
-    4.0 + 1.1,
+    4.0,  #+ 1.1,
     'post_size':
     0.1,
     # post_adj':  post_size / 2
@@ -68,7 +68,7 @@ shape_config = {
 
     # 'DEFAULT' 6-key, 'MINI' 5-key, 'CARBONFET' 6-key, 'MINIDOX' 3-key, 'TRACKBALL_ORBYL', 'TRACKBALL_CJ'
     'thumb_style':
-    'MINI',
+    'CARBONFET',
     'default_1U_cluster':
     True,  # only used with default, makes top right thumb cluster key 1U
     # Thumb key size.  May need slight oversizing, check w/ caps.  Additional spacing will be automatically added for larger keys.
@@ -253,29 +253,29 @@ shape_config = {
     False,
     ##############################
     'wall_z_offset':
-    15,  # length of the first downward_sloping part of the wall
+    -8,  # length of the first downward_sloping part of the wall
     'wall_x_offset':
     5,  # offset in the x and/or y direction for the first downward_sloping part of the wall (negative)
     'wall_y_offset':
-    6,  # offset in the x and/or y direction for the first downward_sloping part of the wall (negative)
+    5,  # offset in the x and/or y direction for the first downward_sloping part of the wall (negative)
     'left_wall_x_offset':
-    12,  # specific values for the left side due to the minimal wall.
+    8,  # specific values for the left side due to the minimal wall.
     'left_wall_z_offset':
-    3,  # specific values for the left side due to the minimal wall.
+    0,  # specific values for the left side due to the minimal wall.
     'left_wall_lower_x_offset':
     0,  # specific values for the lower left corner.
     'left_wall_lower_y_offset':
     0,  # specific values for the lower left corner.
     'left_wall_lower_z_offset':
-    3,
+    0,
     'wall_thickness':
     2,  # wall thickness parameter used on upper/mid stage of the wall
     'wall_base_y_thickness':
-    4.5,  # wall thickness at the lower stage
+    2,  # wall thickness at the lower stage
     'wall_base_x_thickness':
-    4.5,  # wall thickness at the lower stage
+    2,  # wall thickness at the lower stage
     'wall_base_back_thickness':
-    4.5,  # wall thickness at the lower stage in the specifically in back for interface.
+    2,  # wall thickness at the lower stage in the specifically in back for interface.
 
     ## Settings for column_style == :fixed
     ## The defaults roughly match Maltron settings
@@ -456,7 +456,7 @@ shape_config = {
     'screws_offset':
     'INSIDE',  # 'OUTSIDE', 'INSIDE', 'ORIGINAL'
     'screw_insert_height':
-    3.8,
+    6.0,
 
     # 'screw_insert_bottom_radius': 5.31 / 2,  #Designed for inserts
     # 'screw_insert_top_radius': 5.1 / 2,  #Designed for inserts
@@ -494,7 +494,7 @@ shape_config = {
     'external_holder_xoffset':
     -5.0,
     'external_holder_yoffset':
-    -4.5,  #Tweak this value to get the right undercut for the tray engagement.
+    -4,  #Tweak this value to get the right undercut for the tray engagement.
 
     # Offset is from the top inner corner of the top inner key.
 
