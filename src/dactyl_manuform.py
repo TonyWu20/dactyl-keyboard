@@ -1,10 +1,10 @@
-import numpy as np
-from numpy import pi
 import os.path as path
 import getopt, sys
 import json
 import os
 import copy
+import numpy as np
+from numpy import pi
 
 from scipy.spatial import ConvexHull as sphull
 import generate_configuration as cfg
