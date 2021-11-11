@@ -2498,12 +2498,18 @@ def front_wall(skeleton=False):
     print('front_wall()')
     shape = None
 
-    shape = union([shape,key_wall_brace(
-        3, lastrow, 0, -1, web_post_bl(), 3, lastrow, 0.5, -1, web_post_br()
-    )])
-    shape = union([shape,key_wall_brace(
-        3, lastrow, 0.5, -1, web_post_br(), 4, cornerrow, 1, -1, web_post_bl()
-    )])
+    shape = union([
+        shape,
+        key_wall_brace(
+            3, lastrow, 0, -1, web_post_bl(), 3, lastrow, 0, -1,
+            web_post_br())  # Original parameters from the clojure code
+    ])
+    shape = union([
+        shape,
+        key_wall_brace(
+            3, lastrow, 0, -1, web_post_br(), 4, cornerrow, 0, -1,
+            web_post_bl())  # Original parameters from the clojure code
+    ])
     for i in range(ncols - 4):
         x = i + 4
         shape = union([shape,key_wall_brace(
