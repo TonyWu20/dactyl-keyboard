@@ -11,7 +11,7 @@ shape_config = {
 
     # 'ENGINE': 'solid',  # 'solid' = solid python / OpenSCAD, 'cadquery' = cadquery / OpenCascade
     'ENGINE':
-    'cadquery',  # 'solid' = solid python / OpenSCAD, 'cadquery' = cadquery / OpenCascade
+    'solid',  # 'solid' = solid python / OpenSCAD, 'cadquery' = cadquery / OpenCascade
 
     ######################
     ## Shape parameters ##
@@ -33,11 +33,11 @@ shape_config = {
     'beta':
     pi / 36.0,  # curvature of the rows
     'centercol':
-    3,  # controls left_right tilt / tenting (higher number is more tenting)
+    4,  # controls left_right tilt / tenting (higher number is more tenting)
     'centerrow_offset':
     3,  # rows from max, controls front_back tilt
     'tenting_angle':
-    pi / 6.0,  # or, change this for more precise tenting control
+    pi / 4.5,  # or, change this for more precise tenting control
 
     # symmetry states if it is a symmetric or asymmetric bui.  If asymmetric it doubles the generation time.
     'symmetry':
@@ -46,9 +46,9 @@ shape_config = {
     "orthographic",
     'column_style':
     "orthographic",  # options include :standard, :orthographic, and :fixed
-    'thumb_offsets': [6, -3, 7],
+    'thumb_offsets': [6, -3, 4],
     'keyboard_z_offset': (
-        14  # controls overall height# original=9 with centercol=3# use 16 for centercol=2
+        8  # controls overall height# original=9 with centercol=3# use 16 for centercol=2
     ),
     'extra_width':
     2.5,  # extra space between the base of keys# original= 2
@@ -68,7 +68,7 @@ shape_config = {
 
     # 'DEFAULT' 6-key, 'MINI' 5-key, 'CARBONFET' 6-key, 'MINIDOX' 3-key, 'TRACKBALL_ORBYL', 'TRACKBALL_CJ'
     'thumb_style':
-    'CARBONFET',
+    'TRACKBALL_CJ',
     'default_1U_cluster':
     True,  # only used with default, makes top right thumb cluster key 1U
     # Thumb key size.  May need slight oversizing, check w/ caps.  Additional spacing will be automatically added for larger keys.
@@ -93,7 +93,7 @@ shape_config = {
     'orbyl_thumb_screw_xy_locations': [[-53, -68]],
     'orbyl_separable_thumb_screw_xy_locations': [[-53, -68], [-66, 8],
                                                  [10, -40]],
-    'tbcj_thumb_screw_xy_locations': [[-40, -75]],
+    'tbcj_thumb_screw_xy_locations': [[-42.5, -75], [18.5, -75]],
     'tbcj_separable_thumb_screw_xy_locations': [[-40, -75], [-63, 10],
                                                 [15, -40]],
     'thumb_plate_tr_rotation':
@@ -160,7 +160,7 @@ shape_config = {
     ## Trackball JS / ORBYL Thumb Cluster    ##
     ##########################################
     'other_thumb':
-    'DEFAULT',  # cluster used for second thumb except if ball_side == 'both'
+    'CARBONFET',  # cluster used for second thumb except if ball_side == 'both'
     'tbjs_key_diameter':
     70,
     'tbjs_Uwidth':
@@ -201,7 +201,7 @@ shape_config = {
     ## Trackball General             ##
     ###################################
     'trackball_modular':
-    False,  # Added, creates a hole with space for the lip size listed below.
+    True,  # Added, creates a hole with space for the lip size listed below.
     'trackball_modular_lip_width':
     3.0,  # width of lip cleared out in ring location
     'trackball_modular_ball_height':
@@ -211,7 +211,7 @@ shape_config = {
     'trackball_modular_clearance':
     0.5,  # height of ball from ring, used to create identical position to fixed.
     'ball_side':
-    'both',  #'left', 'right', or 'both'
+    'right',  #'left', 'right', or 'both'
     'ball_diameter':
     34.0,
     'ball_wall_thickness':
@@ -253,11 +253,11 @@ shape_config = {
     False,
     ##############################
     'wall_z_offset':
-    -8,  # length of the first downward_sloping part of the wall
+    6,  # length of the first downward_sloping part of the wall
     'wall_x_offset':
-    5,  # offset in the x and/or y direction for the first downward_sloping part of the wall (negative)
+    10,  # offset in the x and/or y direction for the first downward_sloping part of the wall (negative)
     'wall_y_offset':
-    5,  # offset in the x and/or y direction for the first downward_sloping part of the wall (negative)
+    10,  # offset in the x and/or y direction for the first downward_sloping part of the wall (negative)
     'left_wall_x_offset':
     8,  # specific values for the left side due to the minimal wall.
     'left_wall_z_offset':
@@ -461,11 +461,11 @@ shape_config = {
     # 'screw_insert_bottom_radius': 5.31 / 2,  #Designed for inserts
     # 'screw_insert_top_radius': 5.1 / 2,  #Designed for inserts
     'screw_insert_bottom_radius':
-    2.5 / 2,  # Designed for self tapping
+    4.0 / 2,  # Designed for self tapping
     'screw_insert_top_radius':
-    2.5 / 2,  # Designed for self tapping
+    4.0 / 2,  # Designed for self tapping
     'screw_insert_outer_radius':
-    4.25,  # Common to keep interface to base
+    4.5,  # Common to keep interface to base
 
     # Does anyone even use these?  I think they just get in the way.
     'wire_post_height':
@@ -520,12 +520,12 @@ shape_config = {
     ###################################
     # COMMON DIMENSION
     'screw_hole_diameter':
-    3,
+    4.5,
     # USED FOR CADQUERY ONLY
     'base_thickness':
-    3.0,  # thickness in the middle of the plate
+    2.6,  # thickness in the middle of the plate
     'base_offset':
-    3.0,  # Both start flat/flush on the bottom.  This offsets the base up (if positive)
+    2.6,  # Both start flat/flush on the bottom.  This offsets the base up (if positive)
     'base_rim_thickness':
     5.0,  # thickness on the outer frame with screws
     'screw_cbore_diameter':
@@ -539,7 +539,7 @@ shape_config = {
     ## HOLES ON PLATE FOR PCB MOUNT
     ###################################
     'plate_holes':
-    True,
+    False,
     'plate_holes_xy_offset': (0.0, 0.0),
     'plate_holes_width':
     14.3,
