@@ -2935,6 +2935,10 @@ def default_thumb_connection(side='right', skeleton=False):
 
 
 def tbjs_thumb_connection(side='right', skeleton=False):
+    """
+    Connect the thumbjs with the left high bone of the mainframe. Now the
+    connection leaves vacancy at the interface with the ball holder rim.
+    """
     print('thumb_connection()')
     # clunky bit on the top left thumb connection  (normal connectors don't work well)
     hulls = []
@@ -2977,7 +2981,7 @@ def tbjs_thumb_connection(side='right', skeleton=False):
 def tbjs_thumb_walls(skeleton=False):
     print('thumb_walls()')
     # thumb, walls
-    shape = wall_brace(
+    shape = wall_brace(  # thumb_mr to ground
         tbjs_thumb_mr_place,
         .5,
         1,
@@ -2989,7 +2993,7 @@ def tbjs_thumb_walls(skeleton=False):
     )
     shape = union([
         shape,
-        wall_brace(
+        wall_brace(  # wall between thumb_mr and thumb_br
             tbjs_thumb_mr_place,
             .5,
             1,
@@ -3002,7 +3006,7 @@ def tbjs_thumb_walls(skeleton=False):
     ])
     shape = union([
         shape,
-        wall_brace(
+        wall_brace(  # thumb_br to ground wall
             tbjs_thumb_br_place,
             0,
             -1,
@@ -3015,20 +3019,13 @@ def tbjs_thumb_walls(skeleton=False):
     ])
     shape = union([
         shape,
-        wall_brace(
-            tbjs_thumb_br_place,
-            0,
-            -1,
-            tbjs_thumb_post_bl(),
-            tbjs_thumb_bl_place,
-            0,
-            -1,
-            tbjs_thumb_post_br(),
-        )
+        wall_brace(  # wall between thumb_bl and thumb_br
+            tbjs_thumb_br_place, 0, -1, tbjs_thumb_post_bl(),
+            tbjs_thumb_bl_place, 0, -1, tbjs_thumb_post_br())
     ])
     shape = union([
         shape,
-        wall_brace(
+        wall_brace(  # thumb_bl to ground wall
             tbjs_thumb_bl_place,
             0,
             -1,
@@ -3042,38 +3039,32 @@ def tbjs_thumb_walls(skeleton=False):
 
     shape = union([
         shape,
-        wall_brace(
-            tbjs_place,
-            -1.5,
-            0,
-            tbjs_post_tl(),
-            (lambda sh: left_key_place(
-                sh, lastrow - 1, -1, side=ball_side, low_corner=True)),
-            -1,
-            0,
-            web_post(),
-        )
+        wall_brace(tbjs_place, -1.5, 0, tbjs_post_tl(),
+                   (lambda sh: left_key_place(
+                       sh, lastrow - 1, -1, side=ball_side, low_corner=True)),
+                   -1, 0, web_post())
     ])
     shape = union([
         shape,
-        wall_brace(
+        wall_brace(  # ball left vertical wall
             tbjs_place,
             -1.5,
             0,
             tbjs_post_tl(),
             tbjs_place,
-            -1,
+            # -1, incorrect bottom
+            -1.5,
             0,
-            tbjs_post_l(),
-        )
+            tbjs_post_tl())
     ])
     shape = union([
         shape,
-        wall_brace(
+        wall_brace(  #bottom key to ball left small triangle
             tbjs_place,
-            -1,
+            -1.5,
             0,
-            tbjs_post_l(),
+            # tbjs_post_l(), # leads to hole
+            tbjs_post_tl(),  # correct pos to hull without leaving a hole
             tbjs_thumb_bl_place,
             -1,
             0,
